@@ -1,20 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+import java.time.YearMonth;
+import java.time.Year;
 
-/**
- *
- * @author ASUS
- */
 public class PenghitungHariFrame extends javax.swing.JFrame {
 
-    /**
-     * Creates new form PenghitungHariFrame
-     */
     public PenghitungHariFrame() {
         initComponents();
+       // Atur model untuk spinnerTahun
+        spinnerTahun.setModel(new javax.swing.SpinnerNumberModel(2024, 1900, 2100, 1));
     }
 
     /**
@@ -26,21 +18,162 @@ public class PenghitungHariFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        labelBulan = new javax.swing.JLabel();
+        labelTahun = new javax.swing.JLabel();
+        labelHasil = new javax.swing.JLabel();
+        buttonHitung = new javax.swing.JButton();
+        buttonKeluar = new javax.swing.JButton();
+        comboBoxBulan = new javax.swing.JComboBox<>();
+        spinnerTahun = new javax.swing.JSpinner();
+        calendarPilihTanggal = new com.toedter.calendar.JCalendar();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(255, 102, 102));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setText("Aplikasi Penghitung Hari");
+
+        labelBulan.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        labelBulan.setText("Pilih Bulan");
+
+        labelTahun.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        labelTahun.setText("Masukkan Tahun");
+
+        labelHasil.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        labelHasil.setText("Jumlah Hari");
+
+        buttonHitung.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        buttonHitung.setText("Hitung jumlah hari");
+        buttonHitung.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonHitungActionPerformed(evt);
+            }
+        });
+
+        buttonKeluar.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        buttonKeluar.setText("Keluar");
+        buttonKeluar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonKeluarActionPerformed(evt);
+            }
+        });
+
+        comboBoxBulan.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        comboBoxBulan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember" }));
+        comboBoxBulan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxBulanActionPerformed(evt);
+            }
+        });
+
+        spinnerTahun.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                spinnerTahunStateChanged(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(buttonHitung, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buttonKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(labelTahun)
+                        .addComponent(labelHasil, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(labelBulan))
+                .addGap(68, 68, 68)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(spinnerTahun)
+                            .addComponent(comboBoxBulan, 0, 277, Short.MAX_VALUE))
+                        .addGap(38, 38, 38)
+                        .addComponent(calendarPilihTanggal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(52, 52, 52)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelBulan)
+                            .addComponent(comboBoxBulan, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(44, 44, 44)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(spinnerTahun, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelTahun)))
+                    .addComponent(calendarPilihTanggal, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(labelHasil)
+                .addGap(11, 11, 11)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonHitung, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(63, 63, 63))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonHitungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHitungActionPerformed
+        // Ambil bulan dan tahun dari input
+    int bulan = comboBoxBulan.getSelectedIndex() + 1; // Indeks +1 karena Januari = 0
+    int tahun = (int) spinnerTahun.getValue(); // Ambil tahun dari spinnerTahun
+
+    // Hitung jumlah hari dalam bulan dan tahun tersebut
+    YearMonth yearMonth = YearMonth.of(tahun, bulan);
+    int jumlahHari = yearMonth.lengthOfMonth();
+    boolean isKabisat = Year.isLeap(tahun);
+
+    // Tampilkan hasil
+    if (isKabisat) {
+        labelHasil.setText("Tahun " + tahun + " adalah tahun kabisat. Jumlah Hari: " + jumlahHari);
+    } else {
+        labelHasil.setText("Tahun " + tahun + " bukan tahun kabisat. Jumlah Hari: " + jumlahHari);
+    }
+    }//GEN-LAST:event_buttonHitungActionPerformed
+
+    private void spinnerTahunStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spinnerTahunStateChanged
+       buttonHitungActionPerformed(null); // Hitung ulang saat tahun diubah
+    }//GEN-LAST:event_spinnerTahunStateChanged
+
+    private void buttonKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKeluarActionPerformed
+      System.exit(0); // Keluar dari aplikasi
+    }//GEN-LAST:event_buttonKeluarActionPerformed
+
+    private void comboBoxBulanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxBulanActionPerformed
+        
+    }//GEN-LAST:event_comboBoxBulanActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +211,15 @@ public class PenghitungHariFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonHitung;
+    private javax.swing.JButton buttonKeluar;
+    private com.toedter.calendar.JCalendar calendarPilihTanggal;
+    private javax.swing.JComboBox<String> comboBoxBulan;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel labelBulan;
+    private javax.swing.JLabel labelHasil;
+    private javax.swing.JLabel labelTahun;
+    private javax.swing.JSpinner spinnerTahun;
     // End of variables declaration//GEN-END:variables
 }
